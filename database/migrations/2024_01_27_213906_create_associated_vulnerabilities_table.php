@@ -30,6 +30,7 @@ return new class extends Migration
             $table->date('patch_at')->nullable();
             $table->text('comments')->nullable();
             $table->string('port',20)->nullable();
+            $table->boolean('needs_approval')->default(false);
             $table->timestamps();
         });
     }

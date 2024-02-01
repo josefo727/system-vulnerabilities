@@ -15,7 +15,7 @@ class AdjustStatusAction
                 ->handle(
                     $associatedVulnerability->report_id,
                     $associatedVulnerability->asset_id,
-                    $associatedVulnerability->id
+                    $associatedVulnerability->vulnerability_id
                 );
 
             $associatedVulnerability->status_id = $statusId;

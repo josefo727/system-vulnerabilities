@@ -35,6 +35,7 @@ class AdjustStates extends Command
                 ->toArray();
 
             $associatedVulnerabilities = AssociatedVulnerability::query()
+                ->where('id', 135)
                 ->whereDoesntHave("status", function ($status) use ($staticStatusCode) {
                     $status->whereIn("code", $staticStatusCode);
                 })

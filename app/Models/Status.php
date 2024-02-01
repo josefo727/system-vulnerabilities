@@ -67,6 +67,11 @@ class Status extends Model
         return self::getStatusIdByCode(self::ON_SCHEDULE['code']);
     }
 
+    public static function getMitigatedStatusId(): int
+    {
+        return self::getStatusIdByCode(self::MITIGATED['code']);
+    }
+
     private static function getStatusIdByCode(string $code): int
     {
         return optional(

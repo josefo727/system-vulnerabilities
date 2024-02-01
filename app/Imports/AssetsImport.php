@@ -17,6 +17,7 @@ class AssetsImport implements ToModel, WithHeadingRow
         return Asset::query()->updateOrCreate(
             [
                 'name' => $row['activo_de_informacion'],
+                'network_id' => app(Network::class)->getNetworkIdByName($row['red']),
             ],
             [
                 'ip_address' => $row['direccion_ip'],
@@ -24,7 +25,6 @@ class AssetsImport implements ToModel, WithHeadingRow
                 'operating_system' => $row['so'],
                 'type' => $row['tipo'],
                 'criticality' => app(DetermineCriticalityService::class)->handle($row['criticidad_activo']),
-                'network_id' => app(Network::class)->getNetworkIdByName($row['red']),
             ]
         );
     }
