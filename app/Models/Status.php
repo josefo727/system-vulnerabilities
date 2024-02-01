@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\HasAuthor;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Status extends Model
 {
@@ -50,6 +51,11 @@ class Status extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function associatedVulnerabilities(): HasMany
+    {
+        return $this->hasMany(AssociatedVulnerability::class);
     }
 
     public static function getNoImpactStatusId(): int
